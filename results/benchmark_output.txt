@@ -1,0 +1,31 @@
+Scheme                          ms/hash     hashes/s      14.3M words
+----------------------------------------------------------------------
+MD5                              0.0017      601,199          23.86 s
+SHA-256                          0.0025      397,983          36.04 s
+SHA-256 + salt                   0.0027      374,437          38.31 s
+PBKDF2 (600,000 it)            503.8199            2        83.6 days
+bcrypt (cost 12)               409.4985            2        68.0 days
+Argon2id (t=3, m=64 MiB)       272.6642            4        45.3 days
+
+PBKDF2-SHA256: time vs iterations
+  iterations=10000           10.04 ms/hash
+  iterations=100000          96.26 ms/hash
+  iterations=300000         282.65 ms/hash
+  iterations=600000         657.60 ms/hash
+  iterations=1000000       1077.66 ms/hash
+
+bcrypt: time vs cost factor (each +1 doubles work)
+  cost=8               27.50 ms/hash
+  cost=10             108.07 ms/hash
+  cost=12             446.30 ms/hash
+  cost=14            1439.39 ms/hash
+
+Argon2id: time vs memory (t=3, p=4)
+  memory_MiB=8               34.21 ms/hash
+  memory_MiB=16              79.61 ms/hash
+  memory_MiB=32             146.48 ms/hash
+  memory_MiB=64             336.19 ms/hash
+  memory_MiB=128            759.33 ms/hash
+  memory_MiB=256           1163.28 ms/hash
+
+Saved CSVs and graphs to D:\project\23ESKCS839_VarunAg_CS-Project\results
